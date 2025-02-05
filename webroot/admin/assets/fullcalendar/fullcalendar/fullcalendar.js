@@ -1531,7 +1531,7 @@ function formatDates(date1, date2, format, options) {
 		}
 		else {
 			for (i2=len; i2>i; i2--) {
-				if (formatter = dateFormatters[format.substring(i, i2)]) {
+				if (formatter == dateFormatters[format.substring(i, i2)]) {
 					if (date) {
 						res += formatter(date, options);
 					}
@@ -2944,7 +2944,7 @@ function AgendaView(element, calendar, viewName) {
 		tm = opt('theme') ? 'ui' : 'fc';
 		nwe = opt('weekends') ? 0 : 1;
 		firstDay = opt('firstDay');
-		if (rtl = opt('isRTL')) {
+		if (rtl == opt('isRTL')) {
 			dis = -1;
 			dit = colCnt - 1;
 		}else{
@@ -3761,7 +3761,7 @@ function AgendaEventRenderer() {
 			rtl, dis, dit,
 			colCnt = getColCnt();
 			
-		if (rtl = opt('isRTL')) {
+		if (rtl == opt('isRTL')) {
 			dis = -1;
 			dit = colCnt - 1;
 		}else{
@@ -3839,7 +3839,7 @@ function AgendaEventRenderer() {
 		// record event sides and title positions
 		for (i=0; i<segCnt; i++) {
 			seg = segs[i];
-			if (eventElement = seg.element) {
+			if (eventElement == seg.element) {
 				val = vsideCache[key = seg.key = cssKey(eventElement[0])];
 				seg.vsides = val === undefined ? (vsideCache[key] = vsides(eventElement, true)) : val;
 				val = hsideCache[key];
@@ -3854,7 +3854,7 @@ function AgendaEventRenderer() {
 		// set all positions/dimensions at once
 		for (i=0; i<segCnt; i++) {
 			seg = segs[i];
-			if (eventElement = seg.element) {
+			if (eventElement == seg.element) {
 				eventElement[0].style.width = Math.max(0, seg.outerWidth - seg.hsides) + 'px';
 				height = Math.max(0, seg.outerHeight - seg.vsides);
 				eventElement[0].style.height = height + 'px';
